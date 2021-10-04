@@ -1,0 +1,59 @@
+.box, .box:hover{
+    transition: transform 1s ;
+ }
+ 
+ .box{
+   border: 1px solid black;
+   width: 200px;
+    height: 100px;
+   perspective: 800px;
+   background-color: yellow;
+ }
+ 
+ .box:hover{
+   transform: rotatey(180deg);
+   background-color: black;
+ }
+ 
+ .front, .back, .box:hover .back, .box:hover .front{
+    transition: all 0.5s 0.25s;
+ }
+ 
+ .front, .back {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+ }
+ 
+ .back {
+   color: white;
+   opacity: 0; 
+   transform: translate(-50%, -50%) rotatey(180deg);
+ }
+ 
+ .box:hover .back{
+   opacity: 1;
+ }
+ 
+ .front {
+   opacity: 1;
+   backface-visibility: hidden;
+ }
+ 
+ .box:hover .front{
+   opacity: 0;
+ }
+
+.girar{
+  animation: giro 1s linear 1 normal  running;
+}
+
+ @keyframes giro {
+  from {
+    transform: rotateY( 0deg);
+  }
+  to {
+    transform: rotateY( 180deg);
+  }
+}
